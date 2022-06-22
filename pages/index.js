@@ -1,19 +1,9 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
-  const [data, setData] = useState("");
-
-  async function fetchData() {
-    await fetch("/api/hello", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        setData(responseJson);
-      });
-  }
-
+  
   return (
     <div className="flex flex-col w-full h-screen">
       <Head>
@@ -25,31 +15,18 @@ export default function Home() {
       <h1 className="text-3xl">
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
-
+    <Link href="./articles">
       <button
         onClick={() => {
-          fetchData();
+          
         }}
-        className="border bg-red-600 text-white rounded-md p-3 shadow hover:shadow-lg duration-500"
+        className="border bg-red-600 text-white w-80 rounded-md p-3 shadow-lg hover:shadow-2xl duration-500"
       >
-        Button
+        Articles
       </button>
-      <div className="grid gap-4 grid-cols-3 grid-rows-3 w-full h-full">
-        {data &&
-          data.map((e) => (
-            <div className="inline-grid grid-cols-1 grid-rows-3 rounded-xl shadow-md overflow-hidden ">
-              <div>
-                <div className="bg-lime-200 h-20 ">İmage</div>
-                <div className="p-2">
-                  <div className="p-2">{e.header}</div>
-                  <div>{e.content.substring(0, 100)}...</div>
-                  <div>Date: {e.date}</div>
-                  <div>Author: {e.name}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-      </div>
+    </Link>
+      
+      
     </div>
   );
 }
