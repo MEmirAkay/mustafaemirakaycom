@@ -40,7 +40,7 @@ export default function Articles() {
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3 w-full h-full duration-500">
         {data &&
           data.map((e) => (
-            <Link href="/article/[id]" as={`/article/${e._id}`}>
+            <Link href="api/articles/[id]" as={`api/articles/${e._id}`}>
             <div className="inline-grid grid-cols-1 grid-rows-3 rounded-xl shadow-md overflow-hidden m-3 hover:shadow-2xl duration-500">
               <div>
                 <div className="h-20 md:h-36 duration-500 text-center ">
