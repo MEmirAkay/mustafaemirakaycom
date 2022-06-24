@@ -9,13 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^34.1.0",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@mantine/core": "^4.2.10",
+    "@mantine/hooks": "^4.2.10",
+    "@mantine/rte": "^4.2.10",
+    "@tinymce/tinymce-react": "^4.1.0",
+    "@tiptap/react": "^2.0.0-beta.113",
+    "@tiptap/starter-kit": "^2.0.0-beta.189",
     "dotenv": "^16.0.1",
+    "draft-js": "^0.11.7",
     "express": "^4.18.1",
     "mongodb": "^4.7.0",
     "mongoose": "^6.4.0",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "slate": "^0.81.1",
+    "slate-react": "^0.81.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",

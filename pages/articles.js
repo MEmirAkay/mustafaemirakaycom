@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState, Component, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Articles() {
   const [data, setData] = useState("");
@@ -37,13 +37,13 @@ export default function Articles() {
         </button>
       </a>
     
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-3 w-full h-full duration-500">
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-3 w-full h-full">
         {data &&
           data.map((e) => (
             <Link href="/article/[id]" as={`/article/${e._id}`}>
             <div className="inline-grid grid-cols-1 grid-rows-3 rounded-xl shadow-md overflow-hidden m-3 hover:shadow-2xl duration-500">
               <div>
-                <div className="h-20 md:h-36 duration-500 text-center ">
+                <div className="h-20 md:h-36 text-center ">
                   <img
                     class="h-20 w-full object-cover md:h-36"
                     src={e.pictureurl}
