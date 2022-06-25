@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^34.1.0",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^30.3.1",
     "@ckeditor/ckeditor5-react": "^5.0.2",
     "@mantine/core": "^4.2.10",
     "@mantine/hooks": "^4.2.10",
