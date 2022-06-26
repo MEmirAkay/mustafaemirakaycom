@@ -33,16 +33,12 @@ const article = ({ article }) => {
               <div>{article.name}</div>
               <div>{article.date}</div>
             </div>
-            <div>{article.content}</div>
+            <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
           </div>
         </div>
       </div>
 
-      <p>article _id: {id}</p>
-      <p>author : {article.name}</p>
-      <p>date : {article.date}</p>
-      <p>title: {article.header} </p>
-      <p>content : {article.content}</p>
+     
     </div>
   );
 };

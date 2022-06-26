@@ -54,7 +54,7 @@ export default function Articles() {
                 <div className="p-2">
                   <div className=" text-center">{e.header}</div>
                   <div className="invisible md:visible duration-100">
-                    {e.content.substring(0, 150)}...
+                    {e.content.substring(3, 150)}...
                   </div>
                   <div className="invisible md:visible duration-100">
                     Date: {e.date}
