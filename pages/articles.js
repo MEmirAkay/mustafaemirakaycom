@@ -11,6 +11,7 @@ export default function Articles() {
     })
       .then((response) => response.json())
       .then((responseJson) => {
+        
         setData(responseJson);
       });
   }
