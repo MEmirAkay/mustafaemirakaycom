@@ -17,11 +17,11 @@ export default function SubmitNew() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Link href="/admin">
-                <div className="border-2 rounded-full sm:w-14 sm:h-14 md:w-16 md:h-16  w-18 h-18  border-[#E5E7EB] items-center text-center flex justify-center hover:border-[#F05454] duration-150 p-2 sm:ml-10">
+                <div className="mx-auto border-2 rounded-full sm:w-14 sm:h-14 md:w-16 md:h-16  w-11/12 h-18  border-[#E5E7EB] items-center text-center flex justify-center hover:border-[#F05454] duration-150 p-2 sm:ml-10">
                     <img src="https://img.icons8.com/metro/40/F05454/long-arrow-left.png" />
                 </div>
             </Link>
-            <div className="mx-auto w-7/12 py-10">
+            <div className="mx-auto sm:w-9/12 w-11/12 py-10">
                 <CKEditorApp />
             </div>
         </div>
