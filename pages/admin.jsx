@@ -1,15 +1,37 @@
 import Head from "next/head";
 import { React, useEffect, useState } from "react";
-import ArticleList from "../components/articlelist";
+import Link from "next/link";
 import { server } from "../config";
+import Modal from "react-modal";
 
 export default function Admin({ dataX }) {
+  let subtitle;
+  const [data, setData] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-  const [dataY, setDataY] = useState("");
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
 
-  useEffect( () => {
-    setDataY(dataX);
-  },[]);
+  useEffect(() => {
+    setData(dataX);
+  }, []);
+
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div className="w-full h-full pt-10">
@@ -19,10 +41,58 @@ export default function Admin({ dataX }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="mx-auto w-9/12">
-        
-            <ArticleList data={dataY} />
 
+
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <div className="mx-auto">
+            <h2>Yazıyı silmek istediğinize emin misiniz?</h2>
+            <button onClick={closeModal} className=" border-2 rounded-lg hover:text-white outline-none focus:border-green-400 hover:bg-green-400 duration-300 px-5 py-2">Evet</button>
+            <button onClick={closeModal} className=" border-2 rounded-lg hover:text-white outline-none focus:border-red-400 hover:bg-red-400 duration-300 px-5 py-2">Hayır</button>
+          </div>
+
+
+        </Modal>
+
+        <table className="table-auto border-2 mx-auto w-full">
+          <thead>
+            <tr>
+              <th className="border-2">Başlık</th>
+              <th className="border-2">Yayın Tarihi</th>
+              <th className="border-2" colSpan="2">İşlem</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data &&
+              data.map((e) => (
+                <tr className=" text-lg">
+                  <td className=" px-5 border-2">{e.header}</td>
+                  <td className=" px-5 border-2">{e.date}</td>
+
+                  <td className="w-3/12  h-20 border-y-2">
+                    <button className=" hover:shadow-md duration-300 w-full h-full text-white font-bold bg-amber-400">Edit</button>
+                  </td>
+                  <td className="w-3/12   h-20 border-y-2">
+                    <button onClick={openModal} className=" hover:shadow-md duration-300 w-full h-full text-white font-bold bg-red-500" >Delete</button>
+                  </td>
+                </tr>
+              ))}
+            <tr>
+              <td colSpan="4">
+                <Link href="/submitnew">
+                  <button className="font-semibold hover:text-white outline-none focus:border-green-400 hover:bg-green-400 duration-300 w-full h-20">Yeni Ekle +</button>
+                </Link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+
     </div>
   );
 }
