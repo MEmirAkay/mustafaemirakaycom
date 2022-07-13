@@ -1,4 +1,5 @@
 import { connectToDatabase } from "../../../util/mongodb";
+import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
   const { db } = await connectToDatabase();
@@ -33,6 +34,8 @@ export default async function handler(req, res) {
       break;
 
     case "DELETE":
+          db.collection("article").deleteOne({"_id" : ObjectId(articleId) })
+
       break;
 
     default:

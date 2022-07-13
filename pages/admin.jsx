@@ -5,7 +5,8 @@ import { server } from "../config";
 import Modal from "react-modal";
 
 export default function Admin({ dataX }) {
-  let subtitle;
+
+  let articleID;
   const [data, setData] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -24,13 +25,28 @@ export default function Admin({ dataX }) {
     setData(dataX);
   }, []);
 
+  function deleteArticle() {
 
-  function openModal() {
+  }
+
+
+
+
+  function openModal(id) {
+    articleID = id;
     setIsOpen(true);
   }
 
-  function closeModal() {
-    setIsOpen(false);
+  function closeModal(e) {
+    if (e == "yes") {
+
+      fetch(`${server}/api/admin/article/${articleID}`, {
+        method: "DELETE",
+      });
+
+
+    }
+    
   }
 
   return (
@@ -46,13 +62,19 @@ export default function Admin({ dataX }) {
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
+
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <div className="mx-auto">
-            <h2>Yazıyı silmek istediğinize emin misiniz?</h2>
-            <button onClick={closeModal} className=" border-2 rounded-lg hover:text-white outline-none focus:border-green-400 hover:bg-green-400 duration-300 px-5 py-2">Evet</button>
-            <button onClick={closeModal} className=" border-2 rounded-lg hover:text-white outline-none focus:border-red-400 hover:bg-red-400 duration-300 px-5 py-2">Hayır</button>
+          <div className=" grid grid-cols-2 grid-rows-2">
+            <div className=" text-center col-span-2">
+              <h2>Yazıyı silmek istediğinize emin misiniz?</h2>
+            </div>
+            <div className="">
+              <button onClick={closeModal("yes")} className=" border-2 rounded-lg hover:text-white outline-none focus:border-green-400 hover:bg-green-400 duration-300 px-5 py-2">Evet</button>
+              <button onClick={closeModal("no")} className=" border-2 rounded-lg hover:text-white outline-none focus:border-red-400 hover:bg-red-400 duration-300 px-5 py-2">Hayır</button>
+            </div>
+
           </div>
 
 
