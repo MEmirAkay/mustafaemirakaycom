@@ -18,6 +18,7 @@
     "@tinymce/tinymce-react": "^4.1.0",
     "@tiptap/react": "^2.0.0-beta.113",
     "@tiptap/starter-kit": "^2.0.0-beta.189",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "draft-js": "^0.11.7",
     "express": "^4.18.1",
@@ -27,6 +28,7 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-modal": "^3.15.1",
+    "sha256": "^0.2.0",
     "slate": "^0.81.1",
     "slate-react": "^0.81.0"
   },
@@ -37,4 +39,5 @@
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.2"
   }
+  
 }
