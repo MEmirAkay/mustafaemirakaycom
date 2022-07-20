@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Component, React} from "react";
+import { Component, React, useEffect } from "react";
 
 class Login extends Component {
     constructor(props) {
@@ -21,22 +21,21 @@ class Login extends Component {
     }
 
     handleSubmit(event) {
-
-      const res = fetch("/api/admin/login", {
+        fetch("/api/admin/login", {
             method: "POST",
             body: JSON.stringify({
                 username: this.state.username,
                 password: this.state.password
             })
-        });
+        })  .then((response) => response.json())
+            .then((responseJSON) => {
+                console.log(responseJSON);
+            })
 
-        
-alert(JSON.parse(res))
-        this.setState({loginStatus: r});
-        
+
+
         event.preventDefault();
     }
-
 
     render() {
         return (
@@ -75,7 +74,7 @@ alert(JSON.parse(res))
                             </div>
                             <div className="p-2">
                                 <button
-                                    onClick={() => (alert(this.state.loginStatus))}
+
                                     type="submit"
                                     value="Submit"
                                     className="border-2 hover:border w-full py-5 mt-5 text-xl font-semibold hover:text-white outline-none rounded-md focus:border-green-400 hover:bg-green-400 duration-300"
@@ -83,9 +82,9 @@ alert(JSON.parse(res))
                                     Login
                                 </button>
                             </div>
-                            
-                        </form>
 
+                        </form>
+                        
                     </div>
 
                 </div>
@@ -96,5 +95,8 @@ alert(JSON.parse(res))
     }
 
 }
+
+
+
 
 export default Login;
