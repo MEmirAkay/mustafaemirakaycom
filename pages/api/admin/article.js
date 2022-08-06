@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
     case "POST":
       const { author, date, header, content, pictureurl } = JSON.parse(req.body);
-      console.log(author);
+      
       db.collection("article").insertOne(
         {
           name: author,
