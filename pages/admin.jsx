@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 
 export default function Admin({ dataX }) {
-  let dataY = dataX;
+  
   const router = useRouter();
   const [articleID, setArticleID] = useState("");
   const [data, setData] = useState("");
@@ -27,6 +27,8 @@ export default function Admin({ dataX }) {
   };
 
   useEffect(() => {
+    let dataY = dataX;
+
     setData(dataY);
     checkTokens();
   }, []);
