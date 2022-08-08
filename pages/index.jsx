@@ -8,6 +8,7 @@ import linkedinPNG from '../images/linkedin.png';
 import githubPNG from '../images/github.png';
 import mailPNG from '../images/mail.png';
 
+
 export default function Home({ data }) {
   return (
     <div className=" bg-[#DDDDDD] w-full h-full scroll-smooth">
@@ -35,21 +36,19 @@ export default function Home({ data }) {
             </div>
             <div className="flex font-light text-center align-middle justify-center text-white text-2xl grid-rows-1 grid-cols-4 gap-6 pt-6">
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
-                <a href="https://github.com/MEmirAkay" target="_blank" rel="noopener">
-                  <div></div>
-                  <Image
-                    src={githubPNG}
-                    alt="Github"
-
-                  />
-
+                <a href="https://github.com/MEmirAkay">
+                  
+                    <Image
+                      src={githubPNG}
+                      alt="Github"
+                    />
+                 
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
                 <a
                   href="https://www.linkedin.com/in/mustafaemirakay/"
-                  target="_blank"
-                  rel="noopener"
+
                 >
                   <Image
                     src={linkedinPNG}
@@ -60,7 +59,7 @@ export default function Home({ data }) {
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
-                <a href="https://www.instagram.com/emirakay99/" target="_blank" rel="noopener">
+                <a href="https://www.instagram.com/emirakay99/" >
                   <Image
                     src={instagramPNG}
                     alt="Instagram"
@@ -69,10 +68,10 @@ export default function Home({ data }) {
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454]  duration-150">
-                <a href="mailto:emirakay073@gmail.com" target="_blank" rel="noopener">
+                <a href="mailto:emirakay073@gmail.com" >
                   <Image
                     src={mailPNG}
-                    alt="Github"
+                    alt="Mail"
 
                   />
                 </a>
@@ -89,10 +88,22 @@ export default function Home({ data }) {
                 <Link href="/article/[id]" as={`/article/${e._id}`}>
                   <div className="hover:shadow-2xl shadow-xl grid-cols-2 m-5 flex text-[#30475E] font-light md:text-2xl text-sm border-2 rounded-3xl border-[#30475E] hover:border-[#F05454] hover:text-[#F05454] duration-300">
                     <div id="image" className="p-5 lg:block hidden duration-300 ">
-                      <img
+                      <Image 
+                        loader={()=>{
+                          return `${e.pictureurl}`
+                          
+                        }}
+                        src="me.png"
+                        width={1920}
+                        height={1080}
+                        className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
+                        
+                      />
+
+                      {/* <img
                         className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
                         src={e.pictureurl}
-                      ></img>
+                      ></img> */}
                     </div>
                     <div className="grid-rows-3 p-5">
                       <div className="text-2xl md:font-semibold font-normal">
