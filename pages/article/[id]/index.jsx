@@ -2,6 +2,8 @@
 import { server } from "../../../config";
 import Head from "next/head";
 import Link from "next/link";
+import leftArrowWhite from "../../../images/leftArrowWhite.png";
+import Image from "next/image";
 
 const Article = ({ article }) => {
 
@@ -13,19 +15,22 @@ const Article = ({ article }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w-full flex h-auto p-2 align-top bg-[#222831] sticky top-0">
-      <Link href="/" as={`/`}>
-        <div className="border-2 rounded-full sm:w-14 sm:h-14 md:w-16 md:h-16  w-18 h-18  border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150 p-2 ml-10">
-        <img src="https://img.icons8.com/metro/40/DDDDDD/long-arrow-left.png"/>
-        </div>
+        <Link href="/" as={`/`}>
+          <div className="border-2 rounded-full sm:w-14 sm:h-14 md:w-16 md:h-16  w-18 h-18  border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150 p-2 ml-10">
+            <Image
+              src={leftArrowWhite}
+
+            />
+          </div>
         </Link>
       </div>
       <div className="gap-4 grid-cols-1 grid-rows-2 md:w-7/12 w-10/12 py-10 align-top mx-auto duration-300">
         <div className="">
-          <div className="pb-10">
+          <div className="pb-10" >
             <img
               className="shadow-xl rounded-md mx-auto"
               src={article.pictureurl}
-              
+
             />
           </div>
           <div className="grid-rows-3">

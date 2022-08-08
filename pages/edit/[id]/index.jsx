@@ -3,7 +3,8 @@ import { server } from "../../../config";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-
+import leftArrowRed from "../../../images/leftArrowRed.png";
+import Image from "next/image";
 
 const EditArticle = dynamic(() => import("../../../components/edit"), {
   ssr: false,
@@ -22,6 +23,10 @@ const Edit = ({ article }) => {
             </Head>
             <Link href="/admin">
                 <div className="mx-auto border-2 rounded-full sm:w-14 sm:h-14 md:w-16 md:h-16  w-11/12 h-18  border-[#E5E7EB] items-center text-center flex justify-center hover:border-[#F05454] duration-150 p-2 sm:ml-10">
+                    <Image
+                      src={leftArrowRed}
+                      
+                    />
                     <img src="https://img.icons8.com/metro/40/F05454/long-arrow-left.png" />
                 </div>
             </Link>

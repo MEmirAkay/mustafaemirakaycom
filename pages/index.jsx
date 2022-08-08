@@ -35,7 +35,7 @@ export default function Home({ data }) {
             </div>
             <div className="flex font-light text-center align-middle justify-center text-white text-2xl grid-rows-1 grid-cols-4 gap-6 pt-6">
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
-                <a href="https://github.com/MEmirAkay" target="_blank">
+                <a href="https://github.com/MEmirAkay" target="_blank" rel="noopener">
                   <div></div>
                   <Image
                     src={githubPNG}
@@ -49,6 +49,7 @@ export default function Home({ data }) {
                 <a
                   href="https://www.linkedin.com/in/mustafaemirakay/"
                   target="_blank"
+                  rel="noopener"
                 >
                   <Image
                     src={linkedinPNG}
@@ -59,7 +60,7 @@ export default function Home({ data }) {
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
-                <a href="https://www.instagram.com/emirakay99/" target="_blank">
+                <a href="https://www.instagram.com/emirakay99/" target="_blank" rel="noopener">
                   <Image
                     src={instagramPNG}
                     alt="Instagram"
@@ -68,7 +69,7 @@ export default function Home({ data }) {
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454]  duration-150">
-                <a href="mailto:emirakay073@gmail.com" target="_blank">
+                <a href="mailto:emirakay073@gmail.com" target="_blank" rel="noopener">
                   <Image
                     src={mailPNG}
                     alt="Github"
