@@ -9,7 +9,7 @@ const EditArticle = dynamic(() => import("../../../components/edit"), {
   ssr: false,
 });
 
-const edit = ({ article }) => {
+const Edit = ({ article }) => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -49,4 +49,4 @@ export const getServerSideProps = async (context) => {
   }
 };
 
-export default edit;
+export default Edit;

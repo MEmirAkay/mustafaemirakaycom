@@ -1,11 +1,9 @@
-import { Router, useRouter } from "next/router";
+
 import { server } from "../../../config";
 import Head from "next/head";
 import Link from "next/link";
 
-const article = ({ article }) => {
-  const router = useRouter();
-  const { id } = router.query;
+const Article = ({ article }) => {
 
   return (
     <div className=" bg-[#DDDDDD] w-full h-full min-h-screen scroll-smooth">
@@ -27,7 +25,7 @@ const article = ({ article }) => {
             <img
               className="shadow-xl rounded-md mx-auto"
               src={article.pictureurl}
-              alt="Man looking lifting kettlebell"
+              
             />
           </div>
           <div className="grid-rows-3">
@@ -72,4 +70,4 @@ export const getServerSideProps = async (context) => {
   }
 };
 
-export default article;
+export default Article;
