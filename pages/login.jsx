@@ -7,11 +7,6 @@ export default function Login() {
     const router = useRouter();
 
     useEffect(() => {
-        control();
-    },[])
-
-    function control(){
-
         try {
             if (typeof localStorage.getItem('api_token') !== "undefined" && typeof localStorage.getItem('api_token') !== "undefined" && localStorage.getItem("login_token") !== null && localStorage.getItem("api_token") !== null) {
                 fetch("/api/admin/token", {
@@ -33,7 +28,14 @@ export default function Login() {
         } catch (error) {
             alert("Please Log-in");
         }
-    }
+
+
+
+
+        
+    },[])
+
+   
 
     function submitFunc(username, password){
 

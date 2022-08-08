@@ -27,11 +27,18 @@ const Article = ({ article }) => {
       <div className="gap-4 grid-cols-1 grid-rows-2 md:w-7/12 w-10/12 py-10 align-top mx-auto duration-300">
         <div className="">
           <div className="pb-10" >
-            <img
+            <Image
+              loader={() => {
+                return `${article.pictureurl}`
+
+              }}
+              src="me.png"
+              width={1920}
+              height={1080}
               className="shadow-xl rounded-md mx-auto"
-              src={article.pictureurl}
 
             />
+            
           </div>
           <div className="grid-rows-3">
             <div>

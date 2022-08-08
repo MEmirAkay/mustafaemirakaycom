@@ -27,8 +27,7 @@ const Edit = ({ article }) => {
                       src={leftArrowRed}
                       
                     />
-                    <img src="https://img.icons8.com/metro/40/F05454/long-arrow-left.png" />
-                </div>
+                    </div>
             </Link>
             <div className="mx-auto sm:w-9/12 w-11/12 py-10">
                 <EditArticle id={id} header={article.header} content={article.content} pictureUrl={article.pictureurl} router={router} />

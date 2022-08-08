@@ -88,7 +88,8 @@ export default function Home({ data }) {
                 <Link href="/article/[id]" as={`/article/${e._id}`}>
                   <div className="hover:shadow-2xl shadow-xl grid-cols-2 m-5 flex text-[#30475E] font-light md:text-2xl text-sm border-2 rounded-3xl border-[#30475E] hover:border-[#F05454] hover:text-[#F05454] duration-300">
                     <div id="image" className="p-5 lg:block hidden duration-300 ">
-                      <Image 
+                      <Image
+                      alt="picture"
                         loader={()=>{
                           return `${e.pictureurl}`
                           
