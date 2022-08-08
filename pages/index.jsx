@@ -2,6 +2,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { server } from "../config";
 import Image from "next/image"
+import hello from '../images/hello.gif'
+import instagramPNG from '../images/instagram.png';
+import linkedinPNG from '../images/linkedin.png';
+import githubPNG from '../images/github.png';
+import mailPNG from '../images/mail.png';
 
 export default function Home({ data }) {
   return (
@@ -16,13 +21,13 @@ export default function Home({ data }) {
           <div className="mx-auto grid-row-3 grid-col-1 gap-x-5 grid">
             <div className="flex text-3xl text-white text-center align-middle justify-center">
               Merhaba ben Emir,
-              <img
-                className="mx-2"
-                src="https://user-images.githubusercontent.com/42378118/110234147-e3259600-7f4e-11eb-95be-0c4047144dea.gif"
-                width="40"
-                height="40"
-              
-              ></img>
+              <Image
+                src={hello}
+                alt="Hello"
+                width={40}
+                height={40}
+              />
+
             </div>
             <div className="flex font-light text-center align-middle justify-center text-white text-2xl">
               Burada yazılım, spor ve felsefe gibi farklı konularda bildiklerimi
@@ -31,7 +36,13 @@ export default function Home({ data }) {
             <div className="flex font-light text-center align-middle justify-center text-white text-2xl grid-rows-1 grid-cols-4 gap-6 pt-6">
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
                 <a href="https://github.com/MEmirAkay" target="_blank">
-                  <img src="https://img.icons8.com/ios-glyphs/50/DDDDDD/github.png" />
+                  <div></div>
+                  <Image
+                    src={githubPNG}
+                    alt="Github"
+
+                  />
+
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
@@ -39,17 +50,30 @@ export default function Home({ data }) {
                   href="https://www.linkedin.com/in/mustafaemirakay/"
                   target="_blank"
                 >
-                  <img src="https://img.icons8.com/windows/50/DDDDDD/linkedin.png" />
+                  <Image
+                    src={linkedinPNG}
+                    alt="Linkedin"
+
+                  />
+
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
                 <a href="https://www.instagram.com/emirakay99/" target="_blank">
-                  <img src="https://img.icons8.com/ios/40/DDDDDD/instagram-new--v1.png" />
+                  <Image
+                    src={instagramPNG}
+                    alt="Instagram"
+
+                  />
                 </a>
               </div>
               <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454]  duration-150">
                 <a href="mailto:emirakay073@gmail.com" target="_blank">
-                  <img src="https://img.icons8.com/material-outlined/40/DDDDDD/new-post.png" />
+                  <Image
+                    src={mailPNG}
+                    alt="Github"
+
+                  />
                 </a>
               </div>
             </div>
@@ -61,23 +85,23 @@ export default function Home({ data }) {
           {data &&
             data.map((e) => (
               <div key={e._id}>
-              <Link href="/article/[id]" as={`/article/${e._id}` }>
-                <div className="hover:shadow-2xl shadow-xl grid-cols-2 m-5 flex text-[#30475E] font-light md:text-2xl text-sm border-2 rounded-3xl border-[#30475E] hover:border-[#F05454] hover:text-[#F05454] duration-300">
-                  <div id="image" className="p-5 lg:block hidden duration-300 ">
-                    <img
-                      className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
-                      src={e.pictureurl}
-                    ></img>
-                  </div>
-                  <div className="grid-rows-3 p-5">
-                    <div className="text-2xl md:font-semibold font-normal">
-                      {e.header}
+                <Link href="/article/[id]" as={`/article/${e._id}`}>
+                  <div className="hover:shadow-2xl shadow-xl grid-cols-2 m-5 flex text-[#30475E] font-light md:text-2xl text-sm border-2 rounded-3xl border-[#30475E] hover:border-[#F05454] hover:text-[#F05454] duration-300">
+                    <div id="image" className="p-5 lg:block hidden duration-300 ">
+                      <img
+                        className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
+                        src={e.pictureurl}
+                      ></img>
                     </div>
-                    <div className=" md:text-xl text-base " dangerouslySetInnerHTML={{__html: e.content.substring(0, 200)+"..."}}></div>
-                    <div className="text-base">{e.date}</div>
+                    <div className="grid-rows-3 p-5">
+                      <div className="text-2xl md:font-semibold font-normal">
+                        {e.header}
+                      </div>
+                      <div className=" md:text-xl text-base " dangerouslySetInnerHTML={{ __html: e.content.substring(0, 200) + "..." }}></div>
+                      <div className="text-base">{e.date}</div>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
               </div>
             ))}
           {/* Content List Ends */}
