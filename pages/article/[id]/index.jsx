@@ -36,7 +36,7 @@ const Article = ({ article }) => {
               width={1920}
               height={1080}
               className="shadow-xl rounded-md mx-auto"
-
+              alt="picture"
             />
             
           </div>

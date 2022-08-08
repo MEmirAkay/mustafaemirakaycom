@@ -25,7 +25,7 @@ const Edit = ({ article }) => {
                 <div className="mx-auto border-2 rounded-full sm:w-14 sm:h-14 md:w-16 md:h-16  w-11/12 h-18  border-[#E5E7EB] items-center text-center flex justify-center hover:border-[#F05454] duration-150 p-2 sm:ml-10">
                     <Image
                       src={leftArrowRed}
-                      
+                      alt="picture"
                     />
                     </div>
             </Link>
