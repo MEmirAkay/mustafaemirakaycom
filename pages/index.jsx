@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { server } from "../config";
+import Image from "next/image"
 
 export default function Home({ data }) {
   return (
@@ -19,6 +20,8 @@ export default function Home({ data }) {
                 className="mx-2"
                 src="https://user-images.githubusercontent.com/42378118/110234147-e3259600-7f4e-11eb-95be-0c4047144dea.gif"
                 width="40"
+                height="40"
+              
               ></img>
             </div>
             <div className="flex font-light text-center align-middle justify-center text-white text-2xl">
