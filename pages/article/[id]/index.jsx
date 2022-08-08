@@ -25,7 +25,7 @@ const article = ({ article }) => {
         <div className="">
           <div className="pb-10">
             <img
-              class="shadow-xl rounded-md mx-auto"
+              className="shadow-xl rounded-md mx-auto"
               src={article.pictureurl}
               alt="Man looking lifting kettlebell"
             />

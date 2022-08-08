@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import Link from "next/link";
 
-
-
-class CKEditorApp extends Component {
+class EditArticle extends Component {
   constructor(props) {
     super(props);
-    this.state = { content_header: "", content: "" , pictureUrl:""};
+    this.state = { id:this.props.id, content_header: this.props.header, content: this.props.content , pictureUrl:this.props.pictureUrl};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,12 +22,11 @@ class CKEditorApp extends Component {
     const today = (d.getDate()+"."+(1+d.getMonth())+"."+d.getFullYear()).toString();
     
 
-   fetch("/api/admin/article", {
+   fetch("/api/admin/articleUpdate", {
       method: "POST",
-      headers:{api_token: localStorage.getItem("api_token")},
+      headers:{api_token: JSON.parse(localStorage.api_token)},
       body: JSON.stringify({
-        author:"Emir Akay",
-        date: today,
+        id:this.state.id,
         header: this.state.content_header,
         content: this.state.content,
         pictureurl: this.state.pictureUrl
@@ -90,7 +86,7 @@ class CKEditorApp extends Component {
                 console.log("Focus.", editor);
               }}
             />
-            
+
             <button
               onClick={()=>{this.props.router.push("/admin")}}
               type="submit"
@@ -99,9 +95,6 @@ class CKEditorApp extends Component {
             >
               Submit
             </button>
-            
-           
-            
           </div>
         </form>
       </div>
@@ -109,4 +102,4 @@ class CKEditorApp extends Component {
   }
 }
 
-export default CKEditorApp;
+export default EditArticle;

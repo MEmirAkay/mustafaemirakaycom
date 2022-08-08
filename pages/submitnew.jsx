@@ -3,12 +3,16 @@ import { React } from "react";
 import dynamic from "next/dynamic";
 import { server } from "../config";
 import Link from "next/dist/client/link";
+import {useRouter} from "next/router";
 
 const CKEditorApp = dynamic(() => import("../components/ckeditor"), {
     ssr: false,
 });
 
 export default function SubmitNew() {
+
+    const router = useRouter();
+
     return (
         <div className="w-full h-full pt-4">
             <Head>
@@ -22,7 +26,7 @@ export default function SubmitNew() {
                 </div>
             </Link>
             <div className="mx-auto sm:w-9/12 w-11/12 py-10">
-                <CKEditorApp />
+                <CKEditorApp router={router} />
             </div>
         </div>
     );

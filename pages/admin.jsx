@@ -4,12 +4,12 @@ import Link from "next/link";
 import { server } from "../config";
 import Modal from "react-modal";
 import axios from "axios";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 
 export default function Admin({ dataX }) {
   const router = useRouter();
-  let articleID;
+  const [articleID, setArticleID] = useState("");
   const [data, setData] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
   const [control, setControl] = useState(false);
@@ -45,27 +45,35 @@ export default function Admin({ dataX }) {
         })
         .catch((error) => { console.log(error) })
 
-
-    ) : (setControl(false),router.push("/login"))
-
+    ) : (setControl(false), router.push("/login"))
   }
-
-  function deleteArticle() {
-
-  }
-
 
   function openModal(id) {
-    articleID = id;
+    setArticleID(id);
     setIsOpen(true);
   }
 
   function closeModal(e) {
     if (e == "yes") {
-      fetch(`${server}/api/admin/article/${articleID}`, {
-        method: "DELETE",
-      });
+      fetch(`${server}/api/admin/delete`, {
+        method: "POST",
+        headers:{api_token: JSON.parse(localStorage.api_token)},
+        body: JSON.stringify({
+          idx: articleID
+        })
+      }).then(() => {
+        setIsOpen(false);
+        
+        router.reload(window.location.href);
+
+      })
+        .catch(e => console.log(e));;
+    } else {
+      setIsOpen(false);
+
     }
+    
+    
   }
 
   return (
@@ -76,8 +84,8 @@ export default function Admin({ dataX }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col pb-20">
-        
-          <button className="hover:shadow-md duration-300 w-full h-20 text-white font-bold bg-red-500" onClick={() => { localStorage.clear(), localStorage.removeItem("login_token"), localStorage.removeItem("api_token"),router.push("/login") }}>Logout</button>
+
+        <button className="hover:shadow-md duration-300 w-full h-20 text-white font-bold bg-red-500" onClick={() => { localStorage.clear(), localStorage.removeItem("login_token"), localStorage.removeItem("api_token"), router.push("/login") }}>Logout</button>
 
       </div>
 
@@ -85,7 +93,7 @@ export default function Admin({ dataX }) {
 
         <Modal
           isOpen={modalIsOpen}
-          onRequestClose={() => { closeModal }}
+          onRequestClose={() => { closeModal("no") }}
           style={customStyles}
           contentLabel="Example Modal"
         >
@@ -116,10 +124,14 @@ export default function Admin({ dataX }) {
                   <td className=" px-5 border-2">{e.date}</td>
 
                   <td className="w-3/12  h-20 border-y-2">
-                    <button className=" hover:shadow-md duration-300 w-full h-full text-white font-bold bg-amber-400">Edit</button>
+                    <Link href="/edit/[id]" as={`/edit/${e._id}`}>
+                      <button className=" hover:shadow-md duration-300 w-full h-full text-white font-bold bg-amber-400">Edit</button>
+                    </Link>
                   </td>
                   <td className="w-3/12   h-20 border-y-2">
-                    <button onClick={() => { openModal }} className=" hover:shadow-md duration-300 w-full h-full text-white font-bold bg-red-500" >Delete</button>
+
+                    <button onClick={() => { openModal(e._id) }} className=" hover:shadow-md duration-300 w-full h-full text-white font-bold bg-red-500" >Delete</button>
+
                   </td>
                 </tr>
               ))}
@@ -146,6 +158,7 @@ export default function Admin({ dataX }) {
 export async function getServerSideProps() {
   const res = await fetch(`${server}/api/admin/article`, {
     method: "GET",
+    
   });
   try {
     const dataX = await res.json();
