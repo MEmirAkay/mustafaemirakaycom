@@ -94,6 +94,7 @@ export default function Admin({ dataX }) {
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => { closeModal("no") }}
+          ariaHideApp={false}
           style={customStyles}
           contentLabel="Example Modal"
         >
@@ -119,7 +120,8 @@ export default function Admin({ dataX }) {
           <tbody>
             {data &&
               data.map((e) => (
-                <tr className=" text-lg">
+                <tr className=" text-lg" key={e._id}>
+                  
                   <td className=" px-5 border-2">{e.header}</td>
                   <td className=" px-5 border-2">{e.date}</td>
 
