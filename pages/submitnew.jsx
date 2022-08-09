@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { server } from "../config";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
-import leftArrowRed from "../../../images/leftArrowRed.png";
+import leftArrowRed from "../images/leftArrowRed.png";
 import Image from "next/image";
 
 const CKEditorApp = dynamic(() => import("../components/ckeditor"), {
