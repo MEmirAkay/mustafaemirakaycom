@@ -38,7 +38,7 @@ export default function Admin({ dataX }) {
 
     (typeof localStorage.getItem("login_token") !== "undefined" && typeof localStorage.getItem("api_token") !== "undefined" && localStorage.getItem("login_token") !== null && localStorage.getItem("api_token") !== null) ? (
       
-      axios.post(`${server}/api/admin/token`, { login_token: localStorage.getItem("login_token"), api_token: localStorage.getItem("api_token") })
+      axios.post(`/api/admin/token`, { login_token: localStorage.getItem("login_token"), api_token: localStorage.getItem("api_token") })
         .then((res) => {
           if (res.data.status == "Success") {
             setControl(true);
@@ -58,7 +58,7 @@ export default function Admin({ dataX }) {
 
   function closeModal(e) {
     if (e == "yes") {
-      fetch(`${server}/api/admin/delete`, {
+      fetch(`/api/admin/delete`, {
         method: "POST",
         headers:{api_token: JSON.parse(localStorage.api_token)},
         body: JSON.stringify({
