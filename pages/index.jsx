@@ -90,6 +90,7 @@ export default function Home({ data }) {
                     <div id="image" className="p-5 lg:block hidden duration-300 ">
                       <Image
                       alt="picture"
+                      
                         loader={()=>{
                           return `${e.pictureurl}`
                           
