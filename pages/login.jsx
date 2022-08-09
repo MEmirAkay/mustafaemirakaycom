@@ -18,7 +18,7 @@ export default function Login() {
                 })
                     .then((response) => response.json())
                     .then((responseJSON) => {
-                        console.log("Status : ", responseJSON.status);
+                        
                         if(responseJSON.status == "Success"){
                             router.push("/admin");
                         }

@@ -37,7 +37,7 @@ export default function Admin({ dataX }) {
 
 
     (typeof localStorage.getItem("login_token") !== "undefined" && typeof localStorage.getItem("api_token") !== "undefined" && localStorage.getItem("login_token") !== null && localStorage.getItem("api_token") !== null) ? (
-      console.log("girme"),
+      
       axios.post(`${server}/api/admin/token`, { login_token: localStorage.getItem("login_token"), api_token: localStorage.getItem("api_token") })
         .then((res) => {
           if (res.data.status == "Success") {
