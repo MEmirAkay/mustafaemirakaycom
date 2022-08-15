@@ -35,47 +35,49 @@ export default function Home({ data }) {
               ve deneyimlerimi paylaşıyorum.
             </div>
             <div className="flex font-light text-center align-middle justify-center text-white text-2xl grid-rows-1 grid-cols-4 gap-6 pt-6">
-              <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
-                <a href="https://github.com/MEmirAkay">
-                  
-                    <Image
-                      src={githubPNG}
-                      alt="Github"
-                    />
-                 
-                </a>
-              </div>
-              <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
-                <a
-                  href="https://www.linkedin.com/in/mustafaemirakay/"
 
-                >
-                  <Image
-                    src={linkedinPNG}
-                    alt="Linkedin"
+              <a href="https://github.com/MEmirAkay" className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
 
-                  />
+                <Image
+                  src={githubPNG}
+                  alt="Github"
+                />
 
-                </a>
-              </div>
-              <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150">
-                <a href="https://www.instagram.com/emirakay99/" >
-                  <Image
-                    src={instagramPNG}
-                    alt="Instagram"
+              </a>
 
-                  />
-                </a>
-              </div>
-              <div className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454]  duration-150">
-                <a href="mailto:emirakay073@gmail.com" >
-                  <Image
-                    src={mailPNG}
-                    alt="Mail"
 
-                  />
-                </a>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/mustafaemirakay/"
+                className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150"
+              >
+                <Image
+                  src={linkedinPNG}
+                  alt="Linkedin"
+
+                />
+
+              </a>
+
+              <a href="https://www.instagram.com/emirakay99/"
+                className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150"
+              >
+                <Image
+                  src={instagramPNG}
+                  alt="Instagram"
+
+                />
+              </a>
+
+              <a href="mailto:emirakay073@gmail.com"
+                className="border-2 rounded-full w-16 h-16 border-white items-center text-center flex justify-center hover:border-[#F05454] duration-150"
+              >
+                <Image
+                  src={mailPNG}
+                  alt="Mail"
+
+                />
+              </a>
+
             </div>
           </div>
         </div>
@@ -89,17 +91,17 @@ export default function Home({ data }) {
                   <div className="hover:shadow-2xl shadow-xl grid-cols-2 m-5 flex text-[#30475E] font-light md:text-2xl text-sm border-2 rounded-3xl border-[#30475E] hover:border-[#F05454] hover:text-[#F05454] duration-300">
                     <div id="image" className="p-5 lg:block hidden duration-300 ">
                       <Image
-                      alt="picture"
-                      
-                        loader={()=>{
+                        alt="picture"
+
+                        loader={() => {
                           return `${e.pictureurl}`
-                          
+
                         }}
                         src="me.png"
                         width={800}
                         height={600}
                         className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
-                        
+
                       />
 
                       {/* <img
