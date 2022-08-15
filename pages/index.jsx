@@ -96,8 +96,8 @@ export default function Home({ data }) {
                           
                         }}
                         src="me.png"
-                        width={1920}
-                        height={1080}
+                        width={800}
+                        height={600}
                         className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
                         
                       />
