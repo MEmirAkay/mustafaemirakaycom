@@ -97,17 +97,13 @@ export default function Home({ data }) {
                           return `${e.pictureurl}`
 
                         }}
+                        
                         src="me.png"
-                        width={800}
-                        height={600}
-                        className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
+                        width={400}
+                        height={300}
+                        className="rounded-lg shadow-xl min-w-[400px] min-h-[300px] max-w-[400px] max-h-[300px] object-fit "/>
 
-                      />
-
-                      {/* <img
-                        className="rounded-lg shadow-xl max-w-[300px] max-h-[200px] w-[500px] md:h-[200px] object-fit"
-                        src={e.pictureurl}
-                      ></img> */}
+                      
                     </div>
                     <div className="grid-rows-3 p-5">
                       <div className="text-2xl md:font-semibold font-normal">
